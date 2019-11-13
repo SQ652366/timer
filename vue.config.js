@@ -5,8 +5,21 @@ module.exports = {
             "/Service": {
                 target: "http://m.mtime.cn",
                 changeOrigin: true
-            }
+            },
+            "/proxy": {
+                target: "https://ticket-m.mtime.cn",
+                changeOrigin: true
+            },
+            "/Service": {
+                target: " https://m.mtime.cn",
+                changeOrigin: true
+            },
+            "/article": {
+                target: "https://content-api-m.mtime.cn",
+                changeOrigin: true
+            },
         }
+
     },
     configureWebpack: {
         resolve: {
