@@ -5,7 +5,7 @@
               <div v-for="(item,index) in topicList" :key="index" class="hero_topic">
                <img :src="item.checkedImage">
                </div>
-            <!-- </span> -->
+            
             
         </div>
         
