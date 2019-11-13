@@ -7,14 +7,14 @@ import future from "./future";
 import city from "./city";
 import shop from "./shop"
 import find from "./find"
+
 Vue.use(VueRouter);
 
 const router = new VueRouter({
-    mode:"hash",
-    routes:[
-        {
-            path:"/",
-            redirect:"/shouye"
+    mode: "hash",
+    routes: [{
+            path: "/",
+            redirect: "/shouye"
         },
         shouye,
         goupiao,
@@ -44,11 +44,34 @@ const router = new VueRouter({
                 requiredAuth: false
             }
 
+        },
+        {
+            path: "/list",
+            component: _ =>
+                import ("@pages/list"),
+            name: "list",
+            meta: {
+                flag: false,
+                requiredAuth: false
+            }
+
+        },
+        {
+            props: true,
+            path: "/detail/:id/:name",
+            component: _ =>
+                import ("@pages/detail"),
+            name: "detail",
+            meta: {
+                flag: false,
+                requiredAuth: false
+            }
+
         }
     ]
 })
 router.beforeEach((to, from, next) => {
-    console.log(to, from)
+    //console.log(to, from)
     if (to.path != "/login" && to.meta.requiredAuth) {
         if (localStorage.getItem("token")) {
             next()

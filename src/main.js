@@ -2,10 +2,11 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from "./router"
 import VueTouch from "vue-touch";
-Vue.use(VueTouch,{name:"v-touch"})
+Vue.use(VueTouch, { name: "v-touch" })
 Vue.config.productionTip = false
-
+import store from "./store"
 new Vue({
-  router,
-  render: h => h(App),
+    store,
+    router,
+    render: h => h(App),
 }).$mount('#app')
