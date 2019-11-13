@@ -1,27 +1,24 @@
 <template>
   <div>
-    <Head />
-    <div class="body">
-      <div class="body-left">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F11%2F07%2F111315.58628907_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
+    <Head/>
+    <div class="dy" v-for= "(item,index) in hot" :key="index">
+      <div class="dy-left">
+        <img :src="item.img"/>
       </div>
-      <div class="body-right">
-        <div class="body-right-hed">
-          <b>决战中途岛</b>
-          <i>7.6</i>
+      <div class="dy-right">
+        <div class="dy-right-hed">
+          <b>{{item.t}}</b>
+          <i>{{item.r}}</i>
         </div>
-        <div class="body-right-two">
+        <div class="dy-right-two">
           <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_dot_01.png" alt />
-          <span>震撼再现二战传奇战役</span>
+          <span>{{item.commonSpecial}}</span>
         </div>
-        <div class="body-right-img">
+        <div class="dy-right-img">
           <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/ia_cine_15.png" alt />
         </div>
-        <div class="body-right-zi">
-          <b>173家影院上映1072场</b>
+        <div class="dy-right-zi">
+          <b>{{item.NearestCinemaCount}}家影院上映{{item.NearestShowtimeCount}}场</b>
           <a href>购票</a>
         </div>
       </div>
@@ -31,16 +28,26 @@
 
 <script>
 import Head from "@common/head";
+import { hot } from "@api/hot"
 export default {
   name: "Hot",
+  data(){
+    return{
+      hot:[]
+    }
+  },
   components: {
     Head
+  },
+    async created() {
+    let data = await hot();
+    this.hot=data.ms;
   }
 };
 </script>
 
 <style>
-.body {
+.dy {
   display: flex;
   box-sizing: border-box;
   margin: 0 0.17rem;
@@ -48,50 +55,49 @@ export default {
   border-bottom: 1px solid #ccc;
   padding-bottom: .12rem
 }
-.body-left img {
+.dy-left img {
   height: 0.94rem;
   width: 0.64rem;
 }
-.body-right {
+.dy-right {
   margin-left: 0.17rem;
 }
-.body-right-hed {
+.dy-right-hed {
   line-height: 0.18rem;
 }
-.body-right-hed i {
+.dy-right-hed i {
   background: #659d0e;
   font-size: 0.1rem;
-  width: 0.18rem;
-  height: 0.12rem;
+  padding:0 .06rem;
   display: inline-block;
   color: #fff;
   margin-left: 0.08rem;
 }
-.body-right-hed b {
+.dy-right-hed b {
   font-size: 0.14rem;
 }
-.body-right-two {
+.dy-right-two {
   line-height: 0.16rem;
   margin: 0.06rem 0 0.06rem 0;
 }
-.body-right-two span {
+.dy-right-two span {
   color: #659d0e;
 }
-.body-right-two img {
+.dy-right-two img {
   width: 0.1rem;
   height: 0.1rem;
   vertical-align: 0rem;
 }
-.body-right-img img {
+.dy-right-img img {
   width: 0.5rem;
   height: 0.16rem;
 }
-.body-right-zi b {
+.dy-right-zi b {
   color: #555;
   font-size: 0.1rem;
   font-weight: 100;
 }
-.body-right-zi a {
+.dy-right-zi a {
   display: inline-block;
   width: 0.64rem;
   height: 0.28rem;
