@@ -1,20 +1,20 @@
 <template>
 <div>
-  <div class="head">
-    <div class="head-img">
+  <div class="had">
+    <v-touch @tap="handleB()" class="had-img">
       <img src="https://static1.mtime.cn/html5/20191022151144/images/2014/h_btn_back.png" alt />
-    </div>
-    <div class="head-box">
+    </v-touch>
+    <div class="had-box">
       <router-link tag="li" v-for="item in head" :key="item.id" :to="item.path">{{item.text}}</router-link>
     </div>
     <div></div>
   </div>
-      <div class="banner">
-      <div class="banner_left">
+      <div class="bnner">
+      <div class="bnner_left">
         <span>北京</span>
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_city.png" alt />
       </div>
-      <div class="banner_right">
+      <div class="bnner_right">
         <input type="text" placeholder="影片/影院/影人，任你搜" />
       </div>
     </div>
@@ -39,12 +39,17 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    handleB(){
+       this.$router.back()
+    }
   }
 };
 </script>
 
 <style>
-.head {
+.had {
   background: #1c2635;
   display: flex;
   height: 0.44rem;
@@ -53,12 +58,12 @@ export default {
   align-items: center;
   flex-shrink: 0;
 }
-.head-img > img {
+.had-img > img {
   width: 0.1rem;
   height: 0.15rem;
 }
-.head-box {
-  color: #fff;
+.had-box {
+  color: #999;
   display: flex;
   height: 0.26rem;
   background: #000;
@@ -66,13 +71,13 @@ export default {
   text-align: center;
   border-radius: 0.12rem;
 }
-.head-box li {
+.had-box li {
   height: 0.26rem;
   width: 50%;
   line-height: 0.26rem;
   border-radius: 0.12rem;
 }
-.banner {
+.bnner {
   height: 0.5rem;
   width: 100%;
   background: #f6f6f6;
@@ -81,14 +86,14 @@ export default {
   align-items: center;
   flex-shrink: 0;
 }
-.banner_left span {
+.bnner_left span {
   font-size: 0.16rem;
 }
-.banner_left img {
+.bnner_left img {
   width: 0.1rem;
   height: 0.05rem;
 }
-.banner_right input {
+.bnner_right input {
   height: 0.33rem;
   width: 2rem;
   outline: none;
@@ -99,5 +104,9 @@ export default {
   padding-left: 0.24rem;
   font-size: 0.16rem;
   background-size: 0.18rem;
+}
+.had-box .router-link-active{
+   background:#1c2635;
+   color:#fff
 }
 </style>

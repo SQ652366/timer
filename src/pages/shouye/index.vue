@@ -14,68 +14,16 @@
     <div class="body_head">
       <div class="body_left">
         <b>正在热映</b>
-        <b>(52部)</b>
+        <b>({{this.shouye.length}}部)</b>
       </div>
       <router-link tag="div" to="/hot" class="body_right">
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i-tmore.png" alt />
       </router-link>
     </div>
     <div class="body">
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
-      </div>
-      <div class="body_img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fmt%2F2019%2F10%2F18%2F161351.41649493_1280X720X2.jpg&width=130&height=195&clipType=4"
-          alt
-        />
-        <p>少年的你</p>
+      <div class="body_img" v-for="(item,index) in shouye.slice(0,8)" :key="index">
+        <img :src="item.img"/> 
+        <p>{{item.t}}</p>
       </div>
     </div>
     <div class="body_bottom">
@@ -87,7 +35,11 @@
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i-tmore.png" alt />
       </div>
     </div>
+
+
     <div class="body_line"></div>
+
+
     <div class="body_box">
       <a href>
         <img
@@ -99,73 +51,32 @@
     <div class="body_line_two"></div>
     <div class="body_title">
       <a class="body_title_top">
-        <h2>正在热映</h2>
+        <h2>今日热点</h2>
       </a>
     </div>
-    <div class="bo">
+
+
+    <div class="bt" v-for="(item,index) in shou" :key="index">
+    <div class="bo" v-if="item.styleType==2">
       <div class="img_box">
         <a href>
-          <img
-            src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F08%2F090002.89271737.jpg&width=370&height=180&clipType=4"
-            alt
-          />
-          <h3>时光早报:"复联4"唐尼等人报名奥斯卡</h3>
-          <p>27分钟前</p>
-        </a>
-      </div>
-      <div class="img_box">
-        <a href>
-          <img
-            src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F08%2F090002.89271737.jpg&width=370&height=180&clipType=4"
-            alt
-          />
-          <h3>时光早报:"复联4"唐尼等人报名奥斯卡</h3>
-          <p>27分钟前</p>
-        </a>
-      </div>
-      <div class="img_box">
-        <a href>
-          <img
-            src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F08%2F090002.89271737.jpg&width=370&height=180&clipType=4"
-            alt
-          />
-          <h3>时光早报:"复联4"唐尼等人报名奥斯卡</h3>
-          <p>27分钟前</p>
-        </a>
-      </div>
-      <div class="img_box">
-        <a href>
-          <img
-            src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F08%2F090002.89271737.jpg&width=370&height=180&clipType=4"
-            alt
-          />
-          <h3>时光早报:"复联4"唐尼等人报名奥斯卡</h3>
-          <p>27分钟前</p>
-        </a>
-      </div>
-      <div class="img_box">
-        <a href>
-          <img
-            src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F08%2F090002.89271737.jpg&width=370&height=180&clipType=4"
-            alt
-          />
-          <h3>时光早报:"复联4"唐尼等人报名奥斯卡</h3>
+          <img :src="item.images[0].imgUrl"/> 
+          <h3>{{item.title}}</h3>
           <p>27分钟前</p>
         </a>
       </div>
     </div>
-    <div class="img_left">
+   
+  
+    <div class="img_left" v-if="item.styleType==1">
       <ul class="img_left-ul">
         <div class="img_left_img">
           <a href>
-            <img
-              src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F194801.97631030.jpg&width=225&height=156&clipType=4"
-              alt
-            />
-          </a>
+            <img :src="item.images[0].imgUrl"/>
+     </a>
         </div>
         <div class="img_left_size">
-          <a href>英国四大台联手！新流媒体BritBox来了</a>
+          <a href>{{item.title}}</a>
           <p>
             <span></span>
           </p>
@@ -175,145 +86,26 @@
         </div>
       </ul>
     </div>
-    <div class="img_box">
-      <a href>
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F08%2F090002.89271737.jpg&width=370&height=180&clipType=4"
-          alt
-        />
-        <h3>时光早报:"复联4"唐尼等人报名奥斯卡</h3>
-        <p>27分钟前</p>
-      </a>
-    </div>
-    <div class="img_left">
-      <ul class="img_left-ul">
-        <div class="img_left_img">
-          <a href>
-            <img
-              src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F194801.97631030.jpg&width=225&height=156&clipType=4"
-              alt
-            />
-          </a>
-        </div>
-        <div class="img_left_size">
-          <a href>英国四大台联手！新流媒体BritBox来了</a>
-          <p>
-            <span></span>
-          </p>
-          <p>
-            <span>13小时前</span>
-          </p>
-        </div>
-      </ul>
-    </div>
-    <div class="img_left">
-      <ul class="img_left-ul">
-        <div class="img_left_img">
-          <a href>
-            <img
-              src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F194801.97631030.jpg&width=225&height=156&clipType=4"
-              alt
-            />
-          </a>
-        </div>
-        <div class="img_left_size">
-          <a href>英国四大台联手！新流媒体BritBox来了</a>
-          <p>
-            <span></span>
-          </p>
-          <p>
-            <span>13小时前</span>
-          </p>
-        </div>
-      </ul>
-    </div>
-    <div class="img_left">
-      <ul class="img_left-ul">
-        <div class="img_left_img">
-          <a href>
-            <img
-              src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F194801.97631030.jpg&width=225&height=156&clipType=4"
-              alt
-            />
-          </a>
-        </div>
-        <div class="img_left_size">
-          <a href>英国四大台联手！新流媒体BritBox来了</a>
-          <p>
-            <span></span>
-          </p>
-          <p>
-            <span>13小时前</span>
-          </p>
-        </div>
-      </ul>
-    </div>
-    <div class="body_small">
+
+
+    
+    <div class="body_small" v-if="item.styleType==3">
       <div class="body_small-title">
-        <p>约翰尼德普被换！恐怖片《隐身人》发剧照</p>
+        <p>{{item.title}}}</p>
       </div>
       <div class="body_small-img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162401.30193419.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162401.23659099.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162402.69895386.jpg&width=190&height=130&clipType=4"
-          alt
-        />
+        <img :src="item.images[0].imgUrl"/>
+        <img :src="item.images[1].imgUrl"/>
+        <img :src="item.images[2].imgUrl"/>
+       
       </div>
       <div class="body_small-p">
         <span>17小时前</span>
       </div>
     </div>
-    <div class="body_small">
-      <div class="body_small-title">
-        <p>约翰尼德普被换！恐怖片《隐身人》发剧照</p>
-      </div>
-      <div class="body_small-img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162401.30193419.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162401.23659099.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162402.69895386.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-      </div>
-      <div class="body_small-p">
-        <span>17小时前</span>
-      </div>
-    </div>
-    <div class="body_small" style="border:0">
-      <div class="body_small-title">
-        <p>约翰尼德普被换！恐怖片《隐身人》发剧照</p>
-      </div>
-      <div class="body_small-img">
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162401.30193419.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162401.23659099.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-        <img
-          src="http://imgproxy.mtime.cn/get.ashx?uri=http%3A%2F%2Fimg5.mtime.cn%2Fsma%2F2019%2F11%2F07%2F162402.69895386.jpg&width=190&height=130&clipType=4"
-          alt
-        />
-      </div>
-      <div class="body_small-p">
-        <span>17小时前</span>
-      </div>
-    </div>
+   </div>
+
+
     <div class="foot">
       <p>查看更多</p>
     </div>
@@ -366,8 +158,22 @@
 </template>
 
 <script>
+import { shouye,shou } from "@api/hot"
 export default {
-  name: "shouye"
+  name: "shouye",
+  data(){
+    return{
+      shouye:[],
+      shou:[]
+    }
+  },
+  async created(){
+    let data=await shouye();
+    this.shouye=data.ms;
+    let dat=await shou();
+    console.log(dat)
+    this.shou=dat.data.list;
+  }
 };
 </script>
 
@@ -390,7 +196,7 @@ export default {
 }
 .banner_right input {
   height: 0.34rem;
-  width: 2.02rem;
+  width: 2rem;
   outline: none;
   border-radius: 0.07rem;
   border: 1px solid #ccc;
@@ -500,25 +306,24 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 2.083333rem;
+
   flex-shrink: 0;
 }
 .img_box img {
   width: 2.9rem;
-}
-.img_box h3 {
-  margin: 0.066667rem 0;
+  margin-bottom:.1rem;
+  margin-top:.1rem
 }
 .img_box p {
   color: #555;
   padding-bottom: 0.08rem;
+  padding-top:.08rem;
   border-bottom: 1px solid #ccc;
 }
 .img_left {
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height: 1rem;
   flex-shrink: 0;
 }
 .img_left-ul {
@@ -527,7 +332,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   width: 3rem;
-  padding-bottom: 0.12rem;
+    padding:.1rem 0;
 }
 .img_left_img a img {
   width: 1rem;
@@ -544,16 +349,15 @@ export default {
   font-weight: 100;
 }
 .img_left_size p {
-  margin: 0.081667rem 0;
+  margin: 0.1rem 0;
 }
 .body_small {
   display: flex;
   flex-wrap: wrap;
-  height: 1.4rem;
+
   flex-shrink: 0;
   border-bottom: 1px solid #ccc;
   box-sizing: border-box;
-  margin: 0 0.06rem;
 }
 .body_small-img img {
   width: 0.9rem;
@@ -563,17 +367,20 @@ export default {
 .body_small-img {
   width: 100%;
   text-align: center;
+  height:.8rem
 }
 .body_small-title {
   margin-left: 0.122rem;
   font-size: 0.14rem;
   font-weight: 600;
-  margin-top: 0.041667rem;
+ height:.4rem;
+ line-height: .4rem
 }
 .body_small-p {
   margin-left: 0.122rem;
   font-size: 0.1rem;
   color: #999;
+  height:.2rem;
 }
 .foot {
   display: flex;

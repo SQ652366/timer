@@ -2,7 +2,7 @@
          <div class="head">
         <ul>
             <li class="head-one"><img src="http://static1.mtime.cn/html5/20191022151144/images/2014/logo_mtime.png" alt=""></li>
-            <router-link tag="li" v-for="item in header" :key="item.id" :to="item.path">
+            <router-link tag="li" v-for="item in header" :key="item.id" :to="item.path" >
                 <p class="iconfont" v-html="item.text"></p>
             </router-link>
         </ul>
@@ -73,7 +73,7 @@
     height:.17rem;
     width:.52rem
 }
-.router-link-active{
+.head .router-link-active{
     border-bottom:.02rem solid #fff
 }
 </style>

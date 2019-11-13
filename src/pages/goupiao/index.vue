@@ -43,21 +43,29 @@
         </span>
       </div>
     </div>
-    <div class="bo">
+
+
+    <div class="bo" v-for="(item,index) in goupiao" :key="index">
       <div class="pice">
-        <span>金逸国际影城荟聚店</span>
-        <b>44</b>
+        <span>{{item.cinameName}}</span>
+       <div class="pice-two">
+          <b>{{item.minPrice/100}}</b>
         <i>元起</i>
+       </div>
       </div>
       <div class="adress">
-        <p>北京市大兴区欣宁大街15号7-03-122-C1</p>
+        <p>{{item.address}}</p>
       </div>
       <div class="box">
-        <li>3D</li>
-        <li>IMAX</li>
-        <li>VIP</li>
+        <li v-if="item.feature.has3D==1">{{item.feature.has3D==1?'3D':''}}</li>
+        <li v-if="item.feature.hasIMAX==1">{{item.feature.hasIMAX==1?'IMAX':''}}</li>
+        <li v-if="item.feature.hasVIP==1">{{item.feature.hasVIP==1?'VIP':''}}</li>
       </div>
     </div>
+
+
+
+    <div class="ft">
     <div class="footer">
       <div>
         <a href>首页</a>
@@ -104,11 +112,22 @@
       <span>Mtime.com Inc. All rights reserved.</span>
     </div>
   </div>
+  </div>
 </template>
 
 <script>
+import { goupiao } from "@api/hot"
 export default {
-  name: "goupiao"
+  name: "goupiao",
+  data(){
+    return{
+      goupiao:[]
+    }
+  },
+  async created(){
+    let data = await goupiao();
+   this.goupiao=data.data.cinemaList
+  }
 };
 </script>
 
@@ -193,10 +212,13 @@ export default {
   font-size: 0.13rem;
   line-height: 0.2rem;
   margin-top: 0.1rem;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding:0 .1rem 0 0
 }
 .pice b {
   color: #ff8600;
-  margin-left: 1.3rem;
 }
 .pice i {
   color: #ff8600;
@@ -259,4 +281,5 @@ export default {
   width: 0.66rem;
   height: 0.23rem;
 }
+
 </style>
