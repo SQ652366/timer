@@ -2,14 +2,18 @@
     <div class="more">
             <i>--你可能感兴趣的--</i>
             <div class="more_list">
-                <div v-for="(item,index) in goodslist" :key="index">
+                <router-link v-for="(item,index) in goodslist" 
+                :key="index"
+                tag="div"
+                :to="'/detail/'+item.goodsId"
+                >
                     <img :src="item.image">
                     <div class="more_list_info">
                     <span v-html="item.goodsTip"></span>
                     <p>{{item.name}}</p>
                     <b>{{item.minSalePrice|price("￥")}}</b>
                     </div>
-                </div>
+                </router-link>
                 
             </div>
             </div>

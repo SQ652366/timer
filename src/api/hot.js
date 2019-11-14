@@ -1,4 +1,5 @@
 import http from "@utils/request";
+
 //正在热映
 export const hot =()=>http({
     method:"get",

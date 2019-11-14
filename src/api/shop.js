@@ -31,9 +31,29 @@ export const shopListApi = (t = 2019111217395786370) => http({
 
 export const shopDetailApi = (goodsId) => http({
     method: "get",
-    url: "Service/callback-mall.mi/product/detail.api",
+    url: "/Service/callback-mall.mi/product/detail.api",
     data: {
         goodsId
     }
 
 })
+
+export const shopChaApi = (keyword) => http({
+        method: "post",
+        url: "Service/callback.mi/Search/SearchSuggestionNew.api",
+        data: {
+            t: 2019111321282485508,
+            keyword,
+            locationId: 290
+
+        }
+
+    })
+    // export const shopChaApi = (query) => http({
+    //     method: "get",
+    //     url: "/search",
+    //     data: {
+    //         query
+    //     }
+
+// })

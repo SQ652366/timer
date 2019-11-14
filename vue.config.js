@@ -1,4 +1,5 @@
 
+
 const path =require("path")
 module.exports={
     devServer:{
@@ -22,9 +23,12 @@ module.exports={
     "/api": {
         target: "http://39.105.204.151",
         changeOrigin: true
+    },
+    "/search": {
+        target: "https://m.douban.com",
+        changeOrigin: true
     }
     }   
-
     },
     configureWebpack: {
         resolve: {
