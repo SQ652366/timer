@@ -58,10 +58,22 @@ const router = new VueRouter({
         },
         {
             props: true,
-            path: "/detail/:id/:name",
+            path: "/detail/:id",
             component: _ =>
                 import ("@pages/detail"),
             name: "detail",
+            meta: {
+                flag: false,
+                requiredAuth: false
+            }
+
+        },
+        {
+
+            path: "/cha",
+            component: _ =>
+                import ("@pages/cha"),
+            name: "cha",
             meta: {
                 flag: false,
                 requiredAuth: false

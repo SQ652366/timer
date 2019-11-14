@@ -20,7 +20,7 @@
         <router-link v-for="(item,index) in shangpinList" 
         :key="index" class="lists"
         tag="li" 
-        :to="'/detail/'+item.goodsId+'/'+item.name"
+        :to="'/detail/'+item.goodsId"
         >
             <img :src="item.imageSrc">
             <P><span v-html="item.goodsTip"></span>{{item.name}}</P>

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 const path = require("path")
 module.exports = {
     devServer: {
@@ -6,31 +5,31 @@ module.exports = {
             "/Service": {
                 target: "http://m.mtime.cn",
                 changeOrigin: true
+            },
+            "/proxy": {
+                target: "https://ticket-m.mtime.cn",
+                changeOrigin: true
+            },
+            "/Service": {
+                target: " https://m.mtime.cn",
+                changeOrigin: true
+            },
+            "/article": {
+                target: "https://content-api-m.mtime.cn",
+                changeOrigin: true
+            },
+            "/Service": {
+                target: "http://m.mtime.cn",
+                changeOrigin: true
+            },
+
+            "/search": {
+                target: "https://m.douban.com",
+                changeOrigin: true
             }
+
         }
-=======
-const path =require("path")
-module.exports={
-    devServer:{
-      proxy:{
-        "/Service":{
-            target:"http://m.mtime.cn",
-            changeOrigin:true
-        },
-        "/proxy":{
-          target:"https://ticket-m.mtime.cn",
-          changeOrigin:true
-      },
-      "/Service":{
-        target:" https://m.mtime.cn",
-        changeOrigin:true
-    },
-    "/article":{
-        target:"https://content-api-m.mtime.cn",
-        changeOrigin:true
-    },
-    }   
->>>>>>> dd262f28653e23236cdb94b133f77c1681287470
+
     },
     configureWebpack: {
         resolve: {
