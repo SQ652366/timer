@@ -33,8 +33,8 @@ export default {
   name: "Tlist",
   computed: {
     ...mapState({
-      topicList: state => state.topicList,
-      isShow: state => state.isShow
+      topicList: state => state.city.topicList,
+      isShow: state => state.city.isShow
     })
   }
 };

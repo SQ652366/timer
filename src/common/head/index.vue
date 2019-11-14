@@ -11,7 +11,7 @@
   </div>
       <div class="bnner">
       <div class="bnner_left">
-        <span>北京</span>
+        <span>{{this.$store.state.city.nm}}</span>
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_city.png" alt />
       </div>
       <div class="bnner_right">

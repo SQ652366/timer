@@ -2,11 +2,9 @@
   <div>
     <div class="head">
       <ul>
-        <v-touch @tap="handleBack()">
           <li class="head-img-one">
-            <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/h_btn_back.png" alt />
+            
           </li>
-        </v-touch>
         <li class="head-li">选择城市</li>
         <li></li>
       </ul>
@@ -44,13 +42,7 @@
 import { mapState } from "vuex";
 export default {
   name: "City",
-  methods: {
-    handleBack() {
-      this.$router.back();
-    }
-  },
   created() {
- 
       if(!(sessionStorage.getItem("cityList") && sessionStorage.getItem("hotCity"))){
         this.$store.dispatch("city/handleGetCityList");
       }

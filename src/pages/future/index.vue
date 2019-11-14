@@ -1,6 +1,9 @@
 <template>
-  <div>
+
+
+  <Bscroll>
     <Head />
+  <div>
     <div class="kong">
       <b>最受欢迎</b>
       <b class="ong">(1部)</b>
@@ -50,11 +53,13 @@
       </div>
     </div>
   </div>
+ </Bscroll>  
 </template>
 
 <script>
 import Head from "@common/head";
-import { future } from "@api/hot"
+import { future } from "@api/hot";
+import Bscroll from "@common/bscroll"
 export default {
   name: "Future",
   data(){
@@ -64,7 +69,8 @@ export default {
     }
   },
   components: {
-    Head
+    Head,
+    Bscroll
   },
   async created(){
     let data =await future();

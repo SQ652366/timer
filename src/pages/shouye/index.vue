@@ -1,5 +1,5 @@
 <template>
-  <div>
+      <div class="he">
     <div class="banner">
       <div class="banner_left">
        <router-link tag="div" to="/city" class="banner-city">
@@ -154,7 +154,7 @@
       <span>2006-2019</span>
       <span>Mtime.com Inc. All rights reserved.</span>
     </div>
-  </div>
+      </div>
 </template>
 
 <script>
