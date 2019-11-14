@@ -45,3 +45,11 @@ export const shou =()=>http({
     }
 })
 
+//城市
+export const city = ()=>http({
+    method:"get",
+    url:"/api/cityList",
+    data:{
+    
+    }
+})

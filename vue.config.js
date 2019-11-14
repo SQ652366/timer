@@ -1,14 +1,4 @@
-<<<<<<< HEAD
-const path = require("path")
-module.exports = {
-    devServer: {
-        proxy: {
-            "/Service": {
-                target: "http://m.mtime.cn",
-                changeOrigin: true
-            }
-        }
-=======
+
 const path =require("path")
 module.exports={
     devServer:{
@@ -28,9 +18,13 @@ module.exports={
     "/article":{
         target:"https://content-api-m.mtime.cn",
         changeOrigin:true
-    },
+    },  
+    "/api": {
+        target: "http://39.105.204.151",
+        changeOrigin: true
+    }
     }   
->>>>>>> dd262f28653e23236cdb94b133f77c1681287470
+
     },
     configureWebpack: {
         resolve: {

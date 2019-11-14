@@ -1,62 +1,70 @@
 <template>
   <div>
-      <div class="head">
-                <ul>
-                  <v-touch @tap="handleBack()">
-                    <li class="head-img-one"><img src="http://static1.mtime.cn/html5/20191022151144/images/2014/h_btn_back.png" alt=""></li>
-                    </v-touch>
-                    <li class="head-li">选择城市</li>
-                    <li> </li>
-                </ul>
-</div> 
-    <div class="banner">
-            <div class="banner_right"><input type="text" placeholder="影片/影院/影人，任你搜"></div>
-    </div> 
-<div class="city">
-    <div>热门城市:</div>
-    <div> </div>
-</div>
-<div class="bdy">
-    <a href="">上海</a>
-    <a href="">重庆</a>
-    <a href="">北京</a>
-    <a href="">深圳</a>
-    <a href="">上海</a>
-    <a href="">重庆</a>
-    <a href="">北京</a>
-    <a href="">深圳</a>
-    <a href="">上海</a>
-    <a href="">重庆</a>
-    <a href="">北京</a>
-    <a href="">深圳</a>
-</div>
-<div class="city">
-        <div>A</div>
-        <div> </div>
+    <div class="head">
+      <ul>
+        <v-touch @tap="handleBack()">
+          <li class="head-img-one">
+            <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/h_btn_back.png" alt />
+          </li>
+        </v-touch>
+        <li class="head-li">选择城市</li>
+        <li></li>
+      </ul>
     </div>
+    <div class="banner">
+      <div class="banner_right">
+        <input type="text" placeholder="请输入关键字" />
+      </div>
+    </div>
+
+   
     <div class="bdy">
-            <a href="">上海</a>
-            <a href="">重庆</a>
-            <a href="">北京</a>
-            <a href="">深圳</a>
-            <a href="">上海</a>
-            <a href="">重庆</a>
-            <a href="">北京</a>
-            <a href="">深圳</a>
-            <a href="">上海</a>
-            <a href="">重庆</a>
-            <a href="">北京</a>
-            <a href="">深圳</a>
+       <div class="city">
+      <div>热门城市:</div>
+      <div></div>
+    </div>
+      <div v-for="(item,index) in hotCity" :key="index">
+        <a href="#">{{item.nm}}</a>
+      </div>
+    </div>
+
+    <div class="bdy" v-for="(item) in cityList" :key="item.id">
+      <div class="city">
+        <div>{{item.index}}</div>
+        <div></div>
+      </div>
+      <v-touch tag="div" @tap="handleCityTo(child)" v-for="child in item.list" :key="child.id">
+        <a href="#">{{child.nm}}</a>
+      </v-touch>
     </div>
   </div>
 </template>
 
 <script>
+import { mapState } from "vuex";
 export default {
-  name:"city",
+  name: "City",
+  methods: {
+    handleBack() {
+      this.$router.back();
+    }
+  },
+  created() {
+ 
+      if(!(sessionStorage.getItem("cityList") && sessionStorage.getItem("hotCity"))){
+        this.$store.dispatch("city/handleGetCityList");
+      }
+  },
+  computed: {
+    ...mapState({
+      hotCity: state => state.city.hotCity,
+      cityList: state => state.city.cityList
+    })
+  },
   methods:{
-    handleBack(){
-      this.$router.back()
+    handleCityTo(city){
+      this.$router.push("/shouye");
+      this.$store.commit("city/handleUpdateCityInfo",city)
     }
   }
 };
@@ -113,18 +121,6 @@ export default {
   font-size: 0.16rem;
   background-size: 0.18rem;
 }
-.city {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  box-sizing: border-box;
-  padding: 0 0.2rem;
-  color: #777;
-  font-size: 0.13rem;
-  background: #ebebeb;
-  height: 0.36rem;
-  flex-shrink: 0;
-}
 .bdy {
   background: #fff;
   display: flex;
@@ -135,11 +131,33 @@ export default {
   padding-top: 0.1rem;
   flex-wrap: wrap;
 }
+.bdy div {
+  height: 0.3rem;
+  width: 24%;
+}
 .bdy a {
-  width: 25%;
+  width: 100%;
+  height: 0.3rem;
   display: inline-block;
   text-align: center;
-  height: 0.3rem;
   color: #333;
+  line-height: 0.3rem;
+}
+.bdy .city {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0 0.2rem;
+  color: #777;
+  font-size: 0.13rem;
+  background: #ebebeb;
+  height: 0.36rem;
+  flex-shrink: 0;
+  width:100%
+}
+.bdy .city div{
+  height:.36rem;
+  line-height: .36rem
 }
 </style>

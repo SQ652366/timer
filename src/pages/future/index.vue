@@ -7,31 +7,34 @@
     </div>
 
 
-    <div class="nav" v-for="(ite,inde) in future.attention" :key="inde">
+    <div class="na" v-for="(ite,inde) in futur" :key="inde">
       <span class="float">{{ite.rMonth}}月{{ite.rDay}}日</span>
-      <div class="nav-left">
+      <div class="na-left">
         <img :src="ite.image" />     
       </div>
-      <div class="nav-right">
-        <div class="nav-q">{{ite.title}}</div>
-        <div class="nav-porper">
+      <div class="na-right">
+        <div class="na-q">{{ite.title}}</div>
+        <div class="na-porper">
           <i>{{ite.wantedCount}}</i>
           <span>人想看 - {{ite.type}}</span>
         </div>
         <div>导演：{{ite.director}}</div>
         <div>演员：{{ite.actor1}},{{ite.actor2}}</div>
-        <div class="nav-car">预告片</div>
+        <div class="na-car">预告片</div>
       </div>
     </div>
     <div class="box"></div>
+
+
+
     <div class="kong1">
       <b>即将上映</b>
-      <b class="ong1">(48部)</b>
+      <b class="ong1">({{this.future.length}}部)</b>
       <p class="time">9月</p>
     </div>
 
 
-    <div class="bd" v-for="(it,indx) in future.moviecomings" :key="indx">
+    <div class="bd" v-for="(it,indx) in future" :key="indx">
       <span class="left-left">{{it.rDay}}日</span>
       <div class="bd-left">
         <img :src="it.image"/>
@@ -57,7 +60,7 @@ export default {
   data(){
     return{
       future:[],
-    futur:[]
+      futur:[]
     }
   },
   components: {
@@ -65,7 +68,9 @@ export default {
   },
   async created(){
     let data =await future();
-    this.future=data
+    this.futur=data.attention
+    this.future=data.moviecomings
+   
   }
 };
 </script>
@@ -83,7 +88,7 @@ export default {
   margin-left: 0.08rem;
   color: #777;
 }
-.nav {
+.na {
   display: flex;
   box-sizing: border-box;
   margin: 0.1rem 0.17rem;
@@ -92,23 +97,23 @@ export default {
   border-right: 1px solid #ccc;
   border-top: 1px solid #ccc;
 }
-.nav div {
+.na div {
   margin: 0.04rem 0;
   font-size: 0.116rem;
 }
-.nav .nav-q {
+.na .na-q {
   margin: 0;
   font-size: 0.16rem;
   font-weight: 600;
 }
-.nav-left img {
+.na-left img {
   width: 0.8rem;
   height: 1.24rem;
 }
-.nav .nav-right {
+.na .na-right {
   margin-left: 0.16rem;
 }
-.nav .nav-car {
+.na .na-car {
   width: 0.8rem;
   height: 0.28rem;
   border: 1px solid #659c0d;
@@ -125,7 +130,7 @@ export default {
   background: #fff;
   padding-right: 0.04rem;
 }
-.nav-porper i {
+.na-porper i {
   margin-right: 0.04rem;
   color: #ff8600;
 }

@@ -56,10 +56,10 @@
       <div class="adress">
         <p>{{item.address}}</p>
       </div>
-      <div class="box">
-        <li v-if="item.feature.has3D==1">{{item.feature.has3D==1?'3D':''}}</li>
-        <li v-if="item.feature.hasIMAX==1">{{item.feature.hasIMAX==1?'IMAX':''}}</li>
-        <li v-if="item.feature.hasVIP==1">{{item.feature.hasVIP==1?'VIP':''}}</li>
+      <div class="bx">
+        <em v-if="item.feature.has3D==1">{{item.feature.has3D==1?'3D':''}}</em>
+        <em v-if="item.feature.hasIMAX==1">{{item.feature.hasIMAX==1?'IMAX':''}}</em>
+        <em v-if="item.feature.hasVIP==1">{{item.feature.hasVIP==1?'VIP':''}}</em>
       </div>
     </div>
 
@@ -195,14 +195,11 @@ export default {
   padding-bottom: 0.08rem;
   height:auto;
 }
-.box {
+.bx {
   display: flex;
 }
-.box div {
-  height: 0.27rem;
-  line-height: 0.18rem;
-}
-.box li {
+
+.bx em {
   margin: 0.05rem 0.02rem;
   border: 1px solid #6d8297;
   font-size: 0.08rem;

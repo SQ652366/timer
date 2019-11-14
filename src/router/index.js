@@ -35,6 +35,26 @@ const router = new VueRouter({
 
         },
         {
+            path: "/zhongxin",
+            component: _ =>
+                import ("@pages/zhongxin"),
+            name: "zhongxin",
+            meta: {
+                flag: false
+            }
+
+        },
+        {
+            path: "/fuwu",
+            component: _ =>
+                import ("@pages/fuwu"),
+            name: "fuwu",
+            meta: {
+                flag: false,
+            }
+
+        },
+        {
             path: "/login",
             component: _ =>
                 import ("@pages/login"),

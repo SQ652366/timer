@@ -42,6 +42,9 @@
 </script>
 
 <style >
+body{
+    background:#f6f6f6
+}
 .ead{
     background:#1c2635;
     display:flex;

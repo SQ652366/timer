@@ -3,11 +3,11 @@
     <div class="banner">
       <div class="banner_left">
        <router-link tag="div" to="/city" class="banner-city">
-          <span>北京</span>
+          <span>{{this.$store.state.city.nm}}</span>
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_city.png" alt />
        </router-link>
       </div>
-      <div class="banner_right">
+      <div class="banne_right">
         <input type="text" placeholder="影片/影院/影人，任你搜" />
       </div>
     </div>
@@ -20,7 +20,7 @@
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i-tmore.png" alt />
       </router-link>
     </div>
-    <div class="body">
+    <div class="bady">
       <div class="body_img" v-for="(item,index) in shouye.slice(0,8)" :key="index">
         <img :src="item.img"/> 
         <p>{{item.t}}</p>
@@ -29,11 +29,11 @@
     <div class="body_bottom">
       <div class="body_bottom_left">
         <b>即将上映</b>
-        <b>(62部)</b>
+        <b>({{this.future.length}}部)</b>
       </div>
-      <div class="body_bottom_right">
+      <router-link tag="div" to="/future" class="body_bottom_right">
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i-tmore.png" alt />
-      </div>
+      </router-link>
     </div>
 
 
@@ -139,7 +139,7 @@
         意见反馈
         <span>|</span>
       </div>
-      <div>建议中心</div>
+      <router-link tag="div" to="/fuwu">建议中心</router-link>
     </div>
     <div class="bottom-one">
       <div class="imgone">
@@ -158,21 +158,23 @@
 </template>
 
 <script>
-import { shouye,shou } from "@api/hot"
+import { shouye,shou,future } from "@api/hot";
 export default {
   name: "shouye",
   data(){
     return{
       shouye:[],
-      shou:[]
+      shou:[],
+      future:[]
     }
   },
   async created(){
     let data=await shouye();
     this.shouye=data.ms;
     let dat=await shou();
-    console.log(dat)
     this.shou=dat.data.list;
+     let da=await future();
+  this.future=da.moviecomings
   }
 };
 </script>
@@ -194,7 +196,7 @@ export default {
   width: 0.1rem;
   height: 0.05rem;
 }
-.banner_right input {
+.banne_right input {
   height: 0.34rem;
   width: 2rem;
   outline: none;
@@ -228,20 +230,19 @@ export default {
   width: 0.16rem;
   height: 0.08rem;
 }
-.body {
+.bady {
   display: flex;
   justify-content: space-around;
   flex-wrap: wrap;
   border-bottom: 1px solid #ccc;
   padding-bottom: 0.083333rem;
-  height: 2.65rem;
   flex-shrink: 0;
 }
 .body_img {
   width: 22%;
   text-align: center;
 }
-.body p {
+.bady p {
   font-size: 0.14rem;
   margin-top: 0.025rem;
   margin-bottom: 0.025rem;
@@ -312,7 +313,8 @@ export default {
 .img_box img {
   width: 2.9rem;
   margin-bottom:.1rem;
-  margin-top:.1rem
+  margin-top:.1rem;
+  height:1.6rem
 }
 .img_box p {
   color: #555;
