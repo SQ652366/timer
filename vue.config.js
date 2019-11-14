@@ -18,6 +18,7 @@ module.exports = {
                 target: "https://content-api-m.mtime.cn",
                 changeOrigin: true
             },
+<<<<<<< HEAD
             "/Service": {
                 target: "http://m.mtime.cn",
                 changeOrigin: true
@@ -28,6 +29,8 @@ module.exports = {
                 changeOrigin: true
             }
 
+=======
+>>>>>>> xiaoya
         }
 
     },
