@@ -59,7 +59,7 @@
         },
         async created(){
             let data=await findNewsApi()
-            console.log(data)
+            //console.log(data)
             this.newslist=data.newsList
             
         },

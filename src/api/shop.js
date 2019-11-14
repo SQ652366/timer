@@ -38,22 +38,13 @@ export const shopDetailApi = (goodsId) => http({
 
 })
 
-export const shopChaApi = (keyword) => http({
-        method: "post",
-        url: "Service/callback.mi/Search/SearchSuggestionNew.api",
-        data: {
-            t: 2019111321282485508,
-            keyword,
-            locationId: 290
+export const shopChaApi = (cityId, kw) => http({
+    method: "get",
+    url: "/api/searchList",
+    data: {
+        cityId,
+        kw
 
-        }
+    }
 
-    })
-    // export const shopChaApi = (query) => http({
-    //     method: "get",
-    //     url: "/search",
-    //     data: {
-    //         query
-    //     }
-
-// })
+})

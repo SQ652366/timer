@@ -3,7 +3,9 @@
 <div class="section">
         <div class="search">
             <img src="../../../public/img/expand.png" >
+            <v-touch tag="div" @tap="handlePush()">
             <input type="text" placeholder="请搜索正版电影周边">
+            </v-touch>
             <span class="iconfont icon-gouwuchekong"></span>
 
         </div>
@@ -40,7 +42,7 @@ import Cate from "@components/cate"
         },
         methods:{
             handlePush(){
-                this.$route.push("/cha")
+                this.$router.push("/cha")
             }
         }
         

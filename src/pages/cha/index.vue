@@ -1,21 +1,34 @@
 <template>
 <div>
+   
     <div class="cha">
+        <v-touch tag="div" @tap="handleBack()" class="back">&lt;</v-touch>
         <input type="text" v-model="value">
         
     </div>
     <div class="content">
-        <div v-for="(item,index) in movieList" :key="index">
-            <img :src="item.cover">
-            <p>{{item.titlecn}}</p>
+        <div v-for="(item,index) in movieList" :key="index" class="content_list">
+        <div>
+            <img :src="item.img|toImg('128.180')">
+            
+        </div>
+        <div>
+            <p>{{item.nm}}</p>
+             <p>{{item.enm}}</p>
+              <p>{{item.cat}}</p>
+               <p>{{item.nm}}</p>
         </div>
         </div>
     </div>
+   
+</div>
 </template>
 
 <script>
+import MessageBox from "../../libs/messageBox/index.js"
 import {shopChaApi} from "@api/shop"
 import {throttle} from "@utils/xiaoya"
+import messageBox from '../../libs/messageBox/index.js'
     export default {
         name:"Cha",
         data(){
@@ -24,17 +37,32 @@ import {throttle} from "@utils/xiaoya"
                 movieList:[]
             }
         },
+        methods:{
+            handleBack(){
+                this.$router.back()
+            }
+        },
+        created(){
+            messageBox({
+                title:"电影信息",
+                content:"你猜是是是",
+                ok:function(){
+                    alert(1)
+                }
+            })
+        },
         watch:{
              value(newVal){
                 throttle(async()=>{
-                let data=await shopChaApi(newVal)
+                let data=await shopChaApi(this.$store.state.city.cityId,newVal)
                 console.log(data)
-                this.movieList=data.suggestions
+                this.movieList=data.data.movies.list
             })
             //性能优化，防止搜索框中没有值的时候，列表中还是有内容
             if(newVal.length==0){
                 this.movieList=[]
-                console.log(this.movieList)
+                console.log(1)
+                //console.log(this.movieList)
             }
                 
             }
@@ -46,14 +74,17 @@ import {throttle} from "@utils/xiaoya"
 .cha {
         height: 0.48rem;
         display: flex;
-        justify-content: center;
+        justify-content: space-around;
         align-items: center;
         position:fixed;
         background: #1c2635;
         width:100%;
         z-index:10
     }
-    
+    .cha .back{
+        font-size: 0.2rem;
+        color:#fff
+    }
     .cha input {
         height: 0.36rem;
         width: 2.62rem;
@@ -74,10 +105,14 @@ import {throttle} from "@utils/xiaoya"
 
     }
      .content div img{
-        width: 0.42rem;
-        height: 0.42rem;
+        width:0.53rem;
+        height:0.75rem;
     }
-    
+    .content .content_list{
+        display:flex;
+        margin-top:0.08rem;
+
+    }
    
     
    

@@ -17,31 +17,19 @@ export default {
   name: "Topic",
   computed: {
     ...mapState({
-      topicList: state => state.topicList
+      topicList: state => state.city.topicList
     })
   },
   created() {
-    this.$store.dispatch("handleAsyncTopic");
+    this.$store.dispatch("city/handleAsyncTopic");
   },
   methods: {
     handleShow(index) {
      
-      this.$store.commit("handleShowMutations", index);
+      this.$store.commit("city/handleShowMutations", index);
     }
   }
-  //  data(){
-  //     return{
-  //         topicList:[]
-  //     }
-  // },
-  // async created(){
-  //     let data=await shopMoWanApi()
-  //    // console.log(data)
-  //     this.topicList=data.topic
-
-  //     console.log(this.topicList)
-
-  // },
+  
 };
 </script>
 

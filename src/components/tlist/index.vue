@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="hero_list" v-for="(item,index) in topicList" :key="index" v-show="isShow==index">
+    <div class="hero_list" v-for="(item,index) in topicList" :key="index" 
+       v-show="isShow==index" >
       <div class="hero_list-name">
         <p>{{item.titleEn}}</p>
         <h1>{{item.titleCn}}</h1>
@@ -33,8 +34,8 @@ export default {
   name: "Tlist",
   computed: {
     ...mapState({
-      topicList: state => state.topicList,
-      isShow: state => state.isShow
+      topicList: state => state.city.topicList,
+      isShow: state => state.city.isShow
     })
   }
 };

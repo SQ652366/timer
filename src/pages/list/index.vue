@@ -1,12 +1,12 @@
 <template>
     <div class="page">
 <div class="tou">
-        <span class="iconfont icon-xiangqingbeifen"></span>
+        <v-touch tag="span" @tap="handleBack()" class="iconfont icon-fanhuitubiao"></v-touch>
         <div class="search1">
             <img src="../../../public/img/expand.png">
             <input type="text" placeholder="请搜索正版电影周边">
         </div>
-        <span class="iconfont icon-xiangqingbeifen"></span>
+        <span class="iconfont icon-loudou"></span>
     </div>
     <nav class="sort1">
         <ul>
@@ -40,9 +40,14 @@
                 shangpinList:[]
             }
         },
+        methods:{
+            handleBack(){
+                this.$router.back()
+            }
+        },
         async created(){
             let data=await shopListApi()
-            console.log(data)
+            //console.log(data)
              this.shangpinList=data.content.goods.goodsList
             //console.log(this.shangpinList)
 
@@ -63,6 +68,9 @@
         align-items: center;
         color: white;
         padding: 0 0.13rem;
+    }
+    .tou span{
+        font-size:0.2rem;
     }
     
     .search1 input {
