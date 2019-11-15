@@ -1,9 +1,9 @@
 <template>
 <div>
   <div class="had">
-    <v-touch @tap="handleB()" class="had-img">
+    <router-link tag="div" to="/shouye" class="had-img">
       <img src="https://static1.mtime.cn/html5/20191022151144/images/2014/h_btn_back.png" alt />
-    </v-touch>
+    </router-link>
     <div class="had-box">
       <router-link tag="li" v-for="item in head" :key="item.id" :to="item.path">{{item.text}}</router-link>
     </div>
@@ -15,13 +15,14 @@
         <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_city.png" alt />
       </div>
       <div class="bnner_right">
-        <input type="text" placeholder="影片/影院/影人，任你搜" />
+        <input type="text" placeholder="影片/影院/影人，任你搜" v-model="value" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import {sou} from "@api/hot"
 export default {
   name: "Head",
   data() {
@@ -37,12 +38,14 @@ export default {
           text: "即将上映",
           path: "/future"
         }
-      ]
+      ],
+      value:""
     };
   },
-  methods:{
-    handleB(){
-       this.$router.back()
+  watch:{
+    async value(newVal){
+      let data=await sou(newVal);
+      console.log(data)
     }
   }
 };

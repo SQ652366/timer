@@ -69,11 +69,16 @@
     align-items: center;
     box-sizing: border-box;
 }
+.head ul li p{
+    border:.02rem solid rgba(0,0,0,0);
+    height:.4rem;
+    line-height: .4rem
+}
 .head-one img{
     height:.17rem;
     width:.52rem
 }
-.head .router-link-active{
+.head .router-link-active p{
     border-bottom:.02rem solid #fff
 }
 </style>

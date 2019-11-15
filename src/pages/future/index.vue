@@ -1,9 +1,9 @@
 <template>
-
-
-  <Bscroll>
-    <Head />
+  
   <div>
+      <Head />
+      <Bscroll ref="scroll">
+       <div>
     <div class="kong">
       <b>最受欢迎</b>
       <b class="ong">(1部)</b>
@@ -52,8 +52,9 @@
         <div class="bd-car">预告片</div>
       </div>
     </div>
+    </div>
+        </Bscroll>
   </div>
- </Bscroll>  
 </template>
 
 <script>
@@ -76,8 +77,10 @@ export default {
     let data =await future();
     this.futur=data.attention
     this.future=data.moviecomings
-   
-  }
+  },
+      mounted(){
+    this.$refs.scroll.handleScrol()
+  },
 };
 </script>
 

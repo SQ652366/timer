@@ -1,23 +1,26 @@
 <template>
-      <div class="he">
+<div>
     <div class="banner">
       <div class="banner_left">
        <router-link tag="div" to="/city" class="banner-city">
           <span>{{this.$store.state.city.nm}}</span>
-        <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_city.png" alt />
+        <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_city.png"/>
        </router-link>
       </div>
       <div class="banne_right">
         <input type="text" placeholder="影片/影院/影人，任你搜" />
       </div>
     </div>
+
+    
+       <div class="he">
     <div class="body_head">
       <div class="body_left">
         <b>正在热映</b>
         <b>({{this.shouye.length}}部)</b>
       </div>
       <router-link tag="div" to="/hot" class="body_right">
-        <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i-tmore.png" alt />
+        <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i-tmore.png"/>
       </router-link>
     </div>
     <div class="bady">
@@ -155,10 +158,13 @@
       <span>Mtime.com Inc. All rights reserved.</span>
     </div>
       </div>
+
+      </div>
 </template>
 
 <script>
 import { shouye,shou,future } from "@api/hot";
+
 export default {
   name: "shouye",
   data(){
@@ -175,11 +181,14 @@ export default {
     this.shou=dat.data.list;
      let da=await future();
   this.future=da.moviecomings
-  }
+  },
 };
 </script>
 
 <style>
+.he{
+  background:#fff
+}
 .banner {
   height: 0.5rem;
   width: 100%;

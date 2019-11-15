@@ -27,7 +27,7 @@ module.exports={
     "/search": {
         target: "https://m.douban.com",
         changeOrigin: true
-    }
+    },
     }   
     },
     configureWebpack: {

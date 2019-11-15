@@ -54,3 +54,13 @@ export const city = ()=>http({
     
     }
 })
+
+//搜索
+export const sou=(cityId,kw)=>http({
+    method:"get",
+    url:"/api/searchList",
+    data:{
+        cityId,
+        kw
+    }
+})
