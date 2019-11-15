@@ -16,9 +16,7 @@
         <Topic/>
         <Tlist/>
         <Cate/>
-        
         <Recommand/>
-        
     </div> 
     </div>
 </template>
@@ -61,12 +59,14 @@ import Cate from "@components/cate"
     
     .search input {
         height: 0.36rem;
-        width: 2.62rem;
+        width: 2.33rem;
         background: #fff;
         font-size: 0.12rem;
         color: #ccc;
         border: none;
-        padding-left: 0.2rem
+        padding-left: 0.2rem;
+        border:none;
+        outline:none;
     }
     
     .search img {

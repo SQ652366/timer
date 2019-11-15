@@ -29,6 +29,9 @@ import MessageBox from "../../libs/messageBox/index.js"
 import {shopChaApi} from "@api/shop"
 import {throttle} from "@utils/xiaoya"
 import messageBox from '../../libs/messageBox/index.js'
+
+
+
     export default {
         name:"Cha",
         data(){

@@ -23,13 +23,13 @@ let actions = {
 
 let mutations = {
     handleTopic(state, params) {
+        console.log(params, "123")
         state.topicList = params
     },
     handleShowMutations(state, index) {
         //console.log(index)
-        setTimeout(function() {
-            state.isShow = index
-        }, 1000)
+        state.isShow = index
+
 
 
     },

@@ -26,9 +26,9 @@ server.interceptors.request.use((config) => {
 //响应的拦截
 server.interceptors.response.use((res) => {
     if (res.status == 200) {
-        setTimeout(function() {
-            vm.destroyLoading()
-        }, 300)
+
+        vm.destroyLoading()
+
 
         return res.data;
     }
