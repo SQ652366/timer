@@ -1,31 +1,38 @@
 import axios from "axios";
-
+import Loading from "../libs/loading/index.js"
+let vm = Loading
 const server = axios.create({
-    timeout:5000,
+    timeout: 5000,
     //baseUrl:"",
-    withCredentials:true
+    withCredentials: true
 })
 
 
 //请求的拦截
-server.interceptors.request.use((config)=>{
-    if(config.method == "get"){
-        config.params = {...config.data};
+server.interceptors.request.use((config) => {
+
+    if (config.method == "get") {
+        config.params = {...config.data };
     }
+    vm.loadingMount()
     return config;
     //config.headers["content-type"] = "application/json"
 
-},(err)=>{
+}, (err) => {
     return Promise.reject(err)
 })
 
 
 //响应的拦截
-server.interceptors.response.use((res)=>{
-    if(res.status == 200){
+server.interceptors.response.use((res) => {
+    if (res.status == 200) {
+        setTimeout(function() {
+            vm.destroyLoading()
+        }, 300)
+
         return res.data;
     }
-},(err)=>{
+}, (err) => {
     return Promise.reject(err)
 })
 

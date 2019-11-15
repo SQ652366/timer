@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from "./router"
 import VueTouch from "vue-touch";
 import "@common/filter"
+
 Vue.use(VueTouch, { name: "v-touch" })
 Vue.config.productionTip = false
 import store from "./store"

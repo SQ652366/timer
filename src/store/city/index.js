@@ -27,7 +27,10 @@ let mutations = {
     },
     handleShowMutations(state, index) {
         //console.log(index)
-        state.isShow = index
+        setTimeout(function() {
+            state.isShow = index
+        }, 1000)
+
 
     },
     handleUpdateCityInfo(state, params) {

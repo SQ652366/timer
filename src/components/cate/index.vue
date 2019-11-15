@@ -39,7 +39,7 @@
             let data=await shopMoWanApi()
             //console.log(data)
             this.catelist=data.category
-            console.log(this.catelist,"111")
+            //console.log(this.catelist,"111")
         }
     }
 </script>

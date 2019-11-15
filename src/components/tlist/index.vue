@@ -1,6 +1,7 @@
 <template>
   <div>
-    <div class="hero_list" v-for="(item,index) in topicList" :key="index" v-show="isShow==index">
+    <div class="hero_list" v-for="(item,index) in topicList" :key="index" 
+       v-show="isShow==index" >
       <div class="hero_list-name">
         <p>{{item.titleEn}}</p>
         <h1>{{item.titleCn}}</h1>
