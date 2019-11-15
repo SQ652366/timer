@@ -37,7 +37,7 @@
         },
         async created(){
             let data=await shopMoWanApi()
-            //console.log(data)
+            console.log(data)
             this.catelist=data.category
             //console.log(this.catelist,"111")
         }
@@ -85,7 +85,11 @@
     .toll_list ul li h3 {
         font-size: 0.1rem;
         color: #000;
-        font-weight: normal
+        font-weight: normal;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width:100%;
     }
     
     .toll_list ul li p {

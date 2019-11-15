@@ -36,7 +36,7 @@ export default {
 <style >
 .hero {
   height: 1.27rem;
-  background: #0f0;
+  
   display: flex;
   justify-content: space-around;
   align-items: flex-end;

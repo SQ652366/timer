@@ -1,11 +1,11 @@
 <template>
     <div>
 <div class="tou1">
-        <span class="iconfont icon-xiangqingbeifen"></span>
+        <v-touch tag="span" @tap="handleBack()" class="iconfont icon-fanhuitubiao"></v-touch>
         <div>
-            <span class="iconfont icon-xiangqingbeifen"></span>
-            <span class="iconfont icon-xiangqingbeifen"></span>
-            <span class="iconfont icon-xiangqingbeifen"></span>
+            <span class="iconfont icon-shouye"></span>
+            <span class="iconfont icon-gouwuchekong"></span>
+            <span class="iconfont icon-fenxiang"></span>
         </div>
     </div>
     <div id="section">
@@ -57,6 +57,11 @@
             //console.log(this.goodsDetail)
 
         },
+        methods:{
+            handleBack(){
+                this.$router.back(this.goodsDetail.minSalePrice)
+            }
+        }
     }
 </script>
 

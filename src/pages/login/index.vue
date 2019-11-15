@@ -11,11 +11,17 @@
     <ul>
         <li class="imne">
             <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_user.png" alt="">
-            <input type="text" placeholder="登录邮箱/手机密码">
+            <input type="text" placeholder="登录邮箱/手机密码" 
+            @input="handleInput()"
+            :value="username"
+            >
         </li>
         <li class="imwo">
             <img src="http://static1.mtime.cn/html5/20191022151144/images/2014/i_password.png" alt="">
-            <input type="password" placeholder="密码">
+            <input type="password" placeholder="密码"
+            @input="handleInput()"
+            :value="pwd"
+            >
             <span class="pwd">显示密码</span>
         </li>
     </ul>
